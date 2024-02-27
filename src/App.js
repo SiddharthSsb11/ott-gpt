@@ -1,9 +1,10 @@
-import './App.css';
 
 function App() {
+
+  console.log('heresss')
   return (
-    <div className="App">
-      <h1>OTT-GPT</h1>
+    <div >
+      <h1 className="text-3xl font-bold text-red-600">OTT-GPT</h1>
     </div>
   );
 }
