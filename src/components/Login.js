@@ -1,6 +1,11 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 import "./Login.css";
 
 const Login = () => {
@@ -19,6 +24,42 @@ const Login = () => {
   const handleButtonClick = () => {
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
+
+    if (message) return;
+
+    if (!prevUser) {
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("---user signup---", user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    } else {
+      // Sign In Logic
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log("---user sigin0----", user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    }
   };
 
   // const focusHandler = () => {
@@ -46,7 +87,7 @@ const Login = () => {
                 ref={name}
                 type="text"
                 placeholder="Full Name"
-                className="w-full text-md bg-gray-700 rounded-lg p-4 font-sans focus:outline-none border-b border-gray-800 focus:border-gray-300"
+                className="w-full text-md  text-gray-200 bg-gray-700 rounded-lg p-4 font-sans focus:outline-none border-b border-gray-800 focus:border-gray-300"
               />
             )}
             <input
