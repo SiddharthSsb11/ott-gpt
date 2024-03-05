@@ -4,16 +4,20 @@ import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
+import { addUser } from "../utils/userSlice";
+import { useDispatch } from "react-redux";
+
 import "./Login.css";
 
 const Login = () => {
   const [prevUser, setPrevUser] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   // const [isInputFocused, setInputFocus] = useState(false);
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const name = useRef(null);
@@ -38,8 +42,28 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log("---user signup---", user);
-          navigate("./browse");
+          // console.log("---user signup---", user);
+
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://avatars.githubusercontent.com/u/66488066?v=4",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              console.log("--after update", user);
+              navigate("./browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -54,10 +78,10 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
+          //  Signed in
           const user = userCredential.user;
-          console.log("---user sigin0----", user);
           navigate("./browse");
+          console.log("--after update signiinnnnn", user);
         })
         .catch((error) => {
           const errorCode = error.code;
