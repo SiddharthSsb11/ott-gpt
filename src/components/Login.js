@@ -59,7 +59,7 @@ const Login = () => {
                 })
               );
               console.log("--after update", user);
-              navigate("./browse");
+              // navigate("./browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -80,7 +80,7 @@ const Login = () => {
         .then((userCredential) => {
           //  Signed in
           const user = userCredential.user;
-          navigate("./browse");
+          // navigate("./browse");
           console.log("--after update signiinnnnn", user);
         })
         .catch((error) => {

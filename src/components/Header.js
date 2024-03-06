@@ -14,7 +14,7 @@ const Header = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/");
+        // navigate("/");
       })
       .catch((error) => {
         navigate("/error");
@@ -22,16 +22,26 @@ const Header = () => {
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        const { uid, email, displayName } = user;
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
         navigate("/browse");
       } else {
         dispatch(removeUser());
         navigate("/");
       }
     });
+
+    // unsubscribe onauthState changed callback when comp unmounts
+    return () => unsubscribe();
   }, []);
 
   return (
