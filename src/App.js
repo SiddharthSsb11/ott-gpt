@@ -9,22 +9,10 @@ import { auth } from "./utils/firebase";
 import { addUser, removeUser } from "./utils/userSlice";
 
 function App() {
-  const dispatch = useDispatch();
   const appRouter = createBrowserRouter([
     { path: "/", element: <Login /> },
     { path: "/browse", element: <Browse /> },
   ]);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email, displayName } = user;
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-      } else {
-        dispatch(removeUser());
-      }
-    });
-  }, []);
 
   return (
     <RouterProvider router={appRouter}>
