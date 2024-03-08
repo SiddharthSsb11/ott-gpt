@@ -12,6 +12,7 @@ import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
 
 import "./Login.css";
+import { USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [prevUser, setPrevUser] = useState(true);
@@ -46,7 +47,7 @@ const Login = () => {
 
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/66488066?v=4",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
