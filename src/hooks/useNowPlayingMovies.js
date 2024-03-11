@@ -14,12 +14,8 @@ const useNowPlayingMovies = () => {
       );
       const nowPlayingMoviesData = await data.json();
       const { results } = nowPlayingMoviesData;
-
-      dispatch(
-        addNowPlayingMovies({
-          results,
-        })
-      );
+      // console.log("---nowPlayingMoviesData----", nowPlayingMoviesData.results);
+      dispatch(addNowPlayingMovies(results));
     } catch (err) {
       console.log(err);
     }
