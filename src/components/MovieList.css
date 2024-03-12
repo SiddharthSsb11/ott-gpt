@@ -1,0 +1,4 @@
+.horizontallist {
+    overflow-x: scroll;
+    display: flex;
+}
