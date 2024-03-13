@@ -1,14 +1,15 @@
-import React from "react";
-import GptSearchBar from "./GptSearchBar";
 import GptMovieSuggestion from "./GptMovieSuggestion";
+import GptSearchBar from "./GptSearchBar";
+import "./Login.css";
 
-const GptSearch = () => {
+const GPTSearch = () => {
   return (
-    <div>
-      <GptSearchBar />
-      <GptMovieSuggestion />
+    <div className="back">
+      <div className="self-start pt-36 w-full">
+        <GptSearchBar />
+        <GptMovieSuggestion />
+      </div>
     </div>
   );
 };
-
-export default GptSearch;
+export default GPTSearch;
