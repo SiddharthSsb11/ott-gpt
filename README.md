@@ -17,7 +17,7 @@ please open an issue first to discuss what you would like to change.
 
 ## Hosted/Deployed
 
-https://ott-gpt-ace5e.web.app/
+https://ott-gpt-gamma.vercel.app/
 
 ## Tech Stack
 
