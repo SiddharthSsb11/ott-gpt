@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# OTT_GPT
+> Finding movie by writing the mood you want to watch.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A platform to watch movies and series as per the category.
+You can also search movies as per your mood by writing a prompt just like chat-gpt.
 
-## Available Scripts
+```
+Currently working on Client side Code for media screen and making it mobile friendly.
+Also working on clicking the Movie card and showing a modal with movie discription and reviews.
 
-In the project directory, you can run:
+In case you find any bugs you can report it to me.
+Pull requests are always welcome. For major changes, 
+please open an issue first to discuss what you would like to change.
+```
 
-### `npm start`
+<hr>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Hosted/Deployed
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+https://ott-gpt-ace5e.web.app/
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<table width="1000">
+	<tr>
+        <td align="center"><a href="https://reactjs.org/"><img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" width="110px;" height="75px;" alt="Javascript"/><br /><b><font color="#777">React</font></b></a></td>
+		<td align="center"><a href="https://tailwindcss.com/"><img src="https://avatars.githubusercontent.com/u/67109815?s=200&v=4" width="75px;" height="75px;" alt="Tailwind"/><br /><b><font color="#777">Tailwind</font></b></a></td>
+        <td align="center"><a href="https://redux.js.org/"><img src="https://avatars.githubusercontent.com/u/13142323?s=200&v=4" width="75px;" height="75px;" alt="Redux"/><br /><b><font color="#777">Redux</font></b></a></td>
+        <td align="center"><a href="https://chat.openai.com/g/g-I1XNbsyDK-api-docs"><img src="https://raw.githubusercontent.com/github/explore/ea47449629d663f4ca24763890b9b8b395069d3b/topics/chatgpt-api/chatgpt-api.png" width="75px;" height="75px;" alt="Redux"/><br /><b><font color="#777">ChatGptApi</font></b></a></td>
+        <td align="center"><a href=""><img src="https://play-lh.googleusercontent.com/VgyD9nxsxISYNjNdGMq3ClUVLrKoMSWdwNHHqGSfFaiR4HMaPf6zOvqQfaD6eQ8P3x4" width="75px;" height="75px;" alt="TMDB"/><br /><b><font color="#777">TMDB</font></b></a></td>
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+	</tr>	
+</table>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
+- Login/Sign Up
+    - Sign In /Sign up Form
+    - redirect to Browse Page
+- Browse (after authentication)
+    - Header
+    - Main Movie
+        - Tailer in Background
+        - Title & Description
+        - MovieSuggestions
+            - MovieLists * N 
+- OTT-GPT
+    - Search Bar
+    - Movie Suggestions as per the prompt
 
-### `npm run eject`
+- Latest features of JavaScript i.e. ES6, ES7, ES8 is used
+- [React JS Hooks](https://reactjs.org/docs/hooks-intro.html) are used with Functional components
+- ES8 `async/await` is used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Setup
+- Before starting the project please add .env file and add TMDB and OPENAI KEY into it.
